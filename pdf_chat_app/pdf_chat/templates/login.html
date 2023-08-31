@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .messages {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .success {
+            color: #4caf50;
+        }
+
+        .error {
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Sign Up</a></li>
+        </ul>
+    </nav>
+    
+    <h1>Login</h1>
+
+    {% if messages %}
+    <div class="notification">
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+<script>
+    function closeNotifications() {
+        var notifications = document.querySelectorAll('.notification');
+        notifications.forEach(function(notification) {
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000);  
+        });
+    }
+
+    window.onload = closeNotifications;
+</script>
+</html>
