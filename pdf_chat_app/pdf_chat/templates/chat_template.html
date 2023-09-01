@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Pdf</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
+    
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="navbar-left">
+            <a href="#" class="logo">
+                <span class="pdf">PDF</span>
+                <span class="dialogue">DIALOGUE</span>
+            </a>
+        </div>
+        <div class="navbar-right">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'upload' %}">Chat with PDF</a></li>
+                <li><a href="#">{{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Chat with AI</h1>
+
+        <div class="chat-history" {% if chat_history|length == 0 %}style="height: 400px;"{% endif %}>
+            {% if chat_history %}
+                {% for entry in chat_history %}
+                <div class="chat-entry">
+                    <div class="chat-question">{{ entry.question }}</div>
+                    <div class="chat-response">{{ entry.response }}</div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="chat-entry">
+                    <div class="chat-response">Welcome to PDFDialogue! Start by asking a question.</div>
+                </div>
+            {% endif %}
+        </div>
+
+        <form action="{% url 'chat' %}" method="get">
+            <input type="hidden" name="pdf_name" value="{{ pdf_name }}">
+            <div class="form-container">
+                <label for="query">Ask a question:</label>
+                <input type="text" name="query" id="query" value="{{ query }}" placeholder="Enter your question here">
+                <button type="submit">Ask</button>
+            </div>
+        </form>
+
+        <div class="end-chat-container">
+            <form action="{% url 'end_chat' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="pdf_name" value="{{ pdf_name }}">
+                <button type="submit" class="end-chat-button">End Chat</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
