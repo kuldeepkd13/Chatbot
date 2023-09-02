@@ -9,8 +9,5 @@
         "src": "/(.*)",
         "dest": "pdf_chat_app/wsgi.py"
       }
-    ],
-    "edgeNetwork": {
-      "enabled": true
-    }
+    ]
   }
