@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDFDIALOGUE</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/nav.css'%}">
+    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navBarWrapper" id="navBarWrapper">
+        <div class="logoWrapper">
+          <img src="../static/assests/logo.png" class="logoIcon" alt="logo"/>
+          <div class="logo"></div>
+        </div>
+        <div class="menuIconWrapper" id="menuIconWrapper">
+        </div>
+        <ul class="navLink" id="navBar">
+            {% if user.is_authenticated %}
+            <li class="linkSelect"><a href="{% url 'home' %}" class="link">Home</a></li>
+            <li class="linkSelect"><a href="{% url 'upload' %}" class="link" >Chat with PDF</a></li>
+            <li class="linkSelect"><a href="#" class="link">{{ user.username }} </a></li>
+            <li class="linkSelect"><a href="{% url 'logout' %}" class="link">Logout</a></li>
+            {% else %}
+            <li class="linkSelect"><a href="{% url 'home' %}" class="link">Home</a></li>
+            <li class="linkSelect"><a href="{% url 'login' %}" class="link" >Login</a></li>
+            <li class="linkSelect"><a href="{% url 'register' %}" class="link"  >Sign Up</a></li>
+            {% endif %}
+          
+        </ul>
+      </nav>    
+
+    {% block content %}{% endblock %}
+
+    {% if messages %}
+    <div class="notification">
+        <ul class="messages">
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</body>
+<script src="{% static 'js/base.js' %}"></script>
+<script src="{% static 'js/notification.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</html>

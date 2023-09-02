@@ -1,74 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFDIALOGUE</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
-
-</head>
-
-<body>
-    <nav>
-        <div class="navbar-left">
-            <a href="#" class="logo">
-                <span class="pdf">PDF</span>
-                <span class="dialogue">DIALOGUE</span>
-            </a>
+{% block content %}
+    <div class="logincard">
+        <div class="logincontainer">
+            <img src="../static/assests/logo.png" alt="Your Logo" class="logoimg">
+            <div class="title">Registation</div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="user_details">
+                    <div class="input_pox">
+                        <span class="datails">First Name</span>
+                        <input type="text" name="first_name" id="first_name" placeholder="enter your First name" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Last Name</span>
+                        <input type="text" name="last_name" id="last_name" placeholder="enter your Last name" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Username</span>
+                        <input type="text" name="username" id="username" placeholder="enter your Username" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Email</span>
+                        <input type="text" name="email" id="email" placeholder="enter your Email" required>
+                    </div>
+    
+                    <div class="input_pox">
+                        <span class="datails">Password</span>
+                        <input type="text" name="password" id="password" placeholder="enter your Password" required>
+                    </div>
+                    <div class="input_pox">
+                        <span class="datails">Confirm Password</span>
+                        <input type="text" name="confirm_password" id="confirm_password" placeholder="Confirm your Password" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+                <p class="small-text">Have an account? <a href="{% url 'register' %}">Login</a></p>
+            </form>
         </div>
-        <div class="navbar-right">
-            <ul>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'upload' %}">Chat with PDF</a></li>
-                <li><a href="#">{{ user.username }}</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Sign Up</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-
-    <h1>Sign Up</h1>
-
-    {% if messages %}
-    <div class="notification">
-        <ul class="messages">
-            {% for message in messages %}
-            <li class="{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
     </div>
-    {% endif %}
+{% endblock %}
 
-    <form method="post">
-        {% csrf_token %}
-        <label for="first_name">First Name:</label>
-        <input type="text" name="first_name" id="first_name" required><br>
-
-        <label for="last_name">Last Name:</label>
-        <input type="text" name="last_name" id="last_name" required><br>
-
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required><br>
-
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required><br>
-
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required><br>
-
-        <label for="confirm_password">Confirm Password:</label>
-        <input type="password" name="confirm_password" id="confirm_password" required><br>
-
-        <button type="submit">Sign Up</button>
-    </form>
-</body>
-<script src="../static/js/notification.js"></script>
-</html>

@@ -1,49 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDFDIALOGUE</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
-</head>
-<body>
-    <nav>
-        <div class="navbar-left">
-            <a href="#" class="logo">
-                <span class="pdf">PDF</span>
-                <span class="dialogue">DIALOGUE</span>
-            </a>
-        </div>
-        <div class="navbar-right">
-            <ul>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'upload' %}">Chat with PDF</a></li>
-                <li><a href="#">{{ user.username }}</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Sign Up</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-    
-    <h1>Welcome to Our Website</h1>
-    <p>This is the home page content.</p>
+{% extends 'base.html' %}
 
-    {% if messages %}
-    <div class="notification">
-        <ul class="messages">
-            {% for message in messages %}
-            <li class="{{ message.tags }}">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-</body>
-<script src="../static/js/notification.js"></script>
-</html>
+{% block content %}
+<h1>Welcome to Our Website</h1>
+<p>This is the home page content.</p>
+{% endblock %}

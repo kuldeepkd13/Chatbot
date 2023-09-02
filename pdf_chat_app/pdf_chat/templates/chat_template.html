@@ -1,43 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with Pdf</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <link rel="stylesheet" href="{% static 'css/notification.css' %}">
-    
-
-</head>
-
-<body>
-
-    <nav>
-        <div class="navbar-left">
-            <a href="#" class="logo">
-                <span class="pdf">PDF</span>
-                <span class="dialogue">DIALOGUE</span>
-            </a>
-        </div>
-        <div class="navbar-right">
-            <ul>
-                {% if user.is_authenticated %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'upload' %}">Chat with PDF</a></li>
-                <li><a href="#">{{ user.username }}</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-                {% else %}
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'register' %}">Sign Up</a></li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container">
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/chat.css'%}">
+{% endblock %}
+{% block content %}
+ <div class="container">
         <h1>Chat with AI</h1>
 
         <div class="chat-history" {% if chat_history|length == 0 %}style="height: 400px;"{% endif %}>
@@ -72,6 +39,4 @@
             </form>
         </div>
     </div>
-</body>
-
-</html>
+{% endblock %}
