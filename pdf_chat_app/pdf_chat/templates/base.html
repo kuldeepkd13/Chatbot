@@ -7,6 +7,7 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/nav.css'%}">
     <link rel="stylesheet" href="{% static 'css/notification.css' %}">
+    
     {% block extra_css %}{% endblock %}
 </head>
 <body>
@@ -18,18 +19,20 @@
         <div class="menuIconWrapper" id="menuIconWrapper">
         </div>
         <ul class="navLink" id="navBar">
-            {% if user.is_authenticated %}
-            <li class="linkSelect"><a href="{% url 'home' %}" class="link">Home</a></li>
-            <li class="linkSelect"><a href="{% url 'upload' %}" class="link" >Chat with PDF</a></li>
-            <li class="linkSelect"><a href="#" class="link">{{ user.username }} </a></li>
-            <li class="linkSelect"><a href="{% url 'logout' %}" class="link">Logout</a></li>
+            {% if username %}
+                <!-- User is authenticated -->
+                <li class="linkSelect"><a href="{% url 'home' %}" class="link">Home</a></li>
+                <li class="linkSelect"><a href="{% url 'upload' %}" class="link" >Chat with PDF</a></li>
+                <li class="linkSelect"><a href="#" class="link">{{ username }} </a></li>
+                <li class="linkSelect"><a href="{% url 'logout' %}" class="link">Logout</a></li>
             {% else %}
-            <li class="linkSelect"><a href="{% url 'home' %}" class="link">Home</a></li>
-            <li class="linkSelect"><a href="{% url 'login' %}" class="link" >Login</a></li>
-            <li class="linkSelect"><a href="{% url 'register' %}" class="link"  >Sign Up</a></li>
+                <!-- User is not authenticated -->
+                <li class="linkSelect"><a href="{% url 'home' %}" class="link">Home</a></li>
+                <li class="linkSelect"><a href="{% url 'login' %}" class="link" >Login</a></li>
+                <li class="linkSelect"><a href="{% url 'register' %}" class="link"  >Sign Up</a></li>
             {% endif %}
-          
         </ul>
+         
       </nav>    
 
     {% block content %}{% endblock %}

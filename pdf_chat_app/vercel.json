@@ -2,22 +2,24 @@
     "builds": [
       {
         "src": "pdf_chat_app/wsgi.py",
-        "use": "@vercel/python",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "build.sh",
+        "use": "@vercel/static-build",
         "config": {
-          "maxLambdaSize": "15mb",
-          "runtime": "python3.9"
+          "distDir": "staticfiles"
         }
       }
     ],
     "routes": [
       {
-        "src": "/static/(.*)", 
-        "dest": "/pdf_chat_app/static/$1" 
-      },
-      {
         "src": "/(.*)",
         "dest": "pdf_chat_app/wsgi.py"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
       }
     ]
   }
-  
