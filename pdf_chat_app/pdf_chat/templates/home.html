@@ -1,6 +1,74 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+    body {
+        background: linear-gradient(123deg, #71b8e7, #9b59b6);
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 36px;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .heroimg img {
+    display: block;
+    width: 90%;
+    border-radius: 10px;
+    margin: 0 auto; /* Center horizontally */
+    align-self: center; /* Center vertically */
+}
+ 
+   
+
+    .homecontanier {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 10px;
+        margin-top: 20px;
+    }
+
+    .service {
+        flex: 1;
+        margin: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service img {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+        flex-grow: 1;
+    }
+   
+</style>
+{% endblock %}
 
 {% block content %}
-<h1>Welcome to Our Website</h1>
-<p>This is the home page content.</p>
+<h1>Interact with PDFs more smartly with AI</h1>
+
+<div class="heroimg">
+    <img src="{% static 'assests/chatwithpdf.jpeg' %}" alt="hero">
+</div>
+
+<div class="homecontanier">
+    <div class="service"><img src="{% static 'assests/free.jpeg' %}" alt="service"></div>
+    <div class="service"><img src="{% static 'assests/freet.jpeg' %}" alt="service"></div>
+    <div class="service"><img src="{% static 'assests/extract.jpeg' %}" alt="service"></div>
+</div>
+
+
+
+
 {% endblock %}

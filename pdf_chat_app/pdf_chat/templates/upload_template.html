@@ -84,6 +84,36 @@
     color: #ffffff;
 }
 
+.lower{
+        width: 75%;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .homecontanier {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 10px;
+        margin-top: 20px;
+    }
+
+    .service {
+        flex: 1;
+        margin: 10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service img {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+        flex-grow: 1;
+    }
+   
+
 /* Modal styles with improved appearance */
 /* Center the modal at the center of the page */
 .modal {
@@ -140,6 +170,18 @@
     </div>
 </div>
 
+<div class="lower"> 
+    <div class="homecontanier">
+    <div class="service"><img src="{% static 'assests/student.jpeg' %}" alt="service"></div>
+    <div class="service"><img src="{% static 'assests/research.jpeg' %}" alt="service"></div>
+    <div class="service"><img src="{% static 'assests/professionals.jpeg' %}" alt="service"></div>
+    </div>
+    <div class="homecontanier">
+    <div class="service"><img src="{% static 'assests/any.jpeg' %}" alt="service"></div>
+    <div class="service"><img src="{% static 'assests/simple.jpeg' %}" alt="service"></div>
+    <div class="service"><img src="{% static 'assests/cited.jpeg' %}" alt="service"></div>
+    </div>
+</div>
 
 <script>
      function displayFileName() {

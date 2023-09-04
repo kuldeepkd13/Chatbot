@@ -16,9 +16,8 @@
   position: sticky;
   top: 0;
   left: 0;
-  background: linear-gradient(123deg, #3a3a3a, #311c1c);
- box-shadow: 0px 0px 30px rgba(221,221,211,0.3);
-  transition: .5s;
+  background:  white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;  transition: .5s;
   display: flex;
   justify-content: space-between;
   padding: 0 2%;
@@ -56,7 +55,7 @@
   text-align: center;
   font-weight:bold;
   font-size: .95em;
-  color: white;
+  color: black ;
 }
 
 .link::after{
@@ -65,7 +64,7 @@
   width:0;
   transition: width .5s;
   height:3px;
-  background: whitesmoke;
+  background: black;
 }
 
 .link:hover::after{
@@ -174,4 +173,32 @@
   }
 }
 
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  bottom: 0; /* Position the footer at the bottom */
+  width: 100%; /* Make the footer span the full width of the viewport */
+}
 
+/* Style for links in the footer */
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Add a wrapper to center content horizontally */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+  footer {
+      padding: 15px;
+  }
+}
