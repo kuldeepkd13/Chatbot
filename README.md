@@ -3,7 +3,7 @@ Welcome to PDFDIALOGUE , Here you can upload the Pdf and Chat with them with the
 
 ## **Platform Access**
 
-Access the ExploreNature platform through **[https://explorenature-demo.com](https://explorenature-demo.com/)**
+Access the ExploreNature platform through **[https://pdf-dialogue-kwx8uw7xg-kuldeepkd13.vercel.app/](https://pdf-dialogue-kwx8uw7xg-kuldeepkd13.vercel.app/)**
 
 ## **Feature Walkthrough**
 
