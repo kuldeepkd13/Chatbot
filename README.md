@@ -7,7 +7,7 @@ Access the ExploreNature platform through **[https://explorenature-demo.com](htt
 
 ## **Feature Walkthrough**
 
-Watch our guided video walkthrough: **[Link to Feature Walkthrough](https://youtube-link-to-walkthrough/)**
+Watch our guided video walkthrough: **[Link to Feature Walkthrough](https://vimeo.com/861298683/42506f6b9d)**
 
 ## **Key Features**
 
