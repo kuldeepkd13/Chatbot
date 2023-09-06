@@ -11,12 +11,8 @@ Watch our guided video walkthrough: **[Link to Feature Walkthrough](https://vime
 
 ## **Key Features**
 
-- Learn About Various Species
-- Dive Into Diverse Habitats
-- Challenge Yourself with Interactive Quizzes
-- Embark on a Virtual Nature Tour
-- Interact with Simulated AI Nature Guide
-- Discover Fun Facts About Nature
+- Upload the pdf
+- Ask question related that pdf and get answer
 
 
 
