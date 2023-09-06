@@ -12,6 +12,7 @@ Watch our guided video walkthrough: **[Link to Feature Walkthrough](https://vime
 ## **Key Features**
 
 - Upload the pdf
+- Start chat with Pdf
 - Ask question related that pdf and get answer
 
 
